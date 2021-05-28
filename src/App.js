@@ -1,56 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useState, useRef, useEffect, forwardRef } from "react";
+import NavBar from "./features/nav/NavBar";
+import Landing from "./features/landing/Landing";
+import About from "./features/about/About";
+import Projects from "./features/projects/Projects";
+
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import useOnScreen from "./utils/useOnScreen";
+import { scroller } from "react-scroll";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+import { Page } from "framer";
+
+import "./App.css";
 
 function App() {
+  const [about, setAboutVis] = useState(false);
+  const [landing, setLandingVis] = useState(false);
+  const [projects, setProjectsVis] = useState(false);
+
+  const checkAboutVis = (e) => {
+    if (e !== about) {
+      setAboutVis(e);
+    }
+  };
+  const checkLandingVis = (e) => {
+    if (e !== landing) {
+      setLandingVis(e);
+    }
+  };
+  const checkProjectsgVis = (e) => {
+    if (e !== projects) {
+      setProjectsVis(e);
+    }
+  };
+
+  const visStatus = { about, landing, projects };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <NavBar visibility={visStatus} />
+
+      <Landing check={checkLandingVis} />
+
+      <About check={checkAboutVis} />
+
+      <Projects check={checkProjectsgVis} />
     </div>
   );
 }
