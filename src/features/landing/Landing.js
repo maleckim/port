@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-
+import ScrollDots from "../components/ScrollDots";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTransform, useViewportScroll } from "framer";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";

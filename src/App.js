@@ -3,10 +3,9 @@ import NavBar from "./features/nav/NavBar";
 import Landing from "./features/landing/Landing";
 import About from "./features/about/About";
 import Projects from "./features/projects/Projects";
-
+import ScrollDots from "./features/components/ScrollDots";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import useOnScreen from "./utils/useOnScreen";
-import { scroller } from "react-scroll";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -39,12 +38,13 @@ function App() {
 
   return (
     <div className="App">
+      <ScrollDots className={landing ? "show" : "hide"} section="landingDot" />
+      <ScrollDots className={about ? "show" : "hide"} section="aboutDot" />
+      <ScrollDots className={projects ? "show" : "hide"} section="projectsDot" />
+
       <NavBar visibility={visStatus} />
-
       <Landing check={checkLandingVis} />
-
       <About check={checkAboutVis} />
-
       <Projects check={checkProjectsgVis} />
     </div>
   );
