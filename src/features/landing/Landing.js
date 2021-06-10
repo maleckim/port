@@ -10,7 +10,7 @@ const Landing = (props) => {
   const yPosAnim = useTransform(scrollYProgress, [0, 0.4, 1], [0, -250, -200]);
 
   const landing = useRef();
-  const isVisible = useOnScreen(landing, "-150px");
+  const isVisible = useOnScreen(landing);
   const trigger = useScrollTrigger();
 
   useEffect(() => {

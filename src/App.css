@@ -51,9 +51,7 @@ select:hover {
   background: linear-gradient(45deg, #ff8e53 30%, #fe6b8b 90%);
 
   overflow-y: scroll;
-  /* scroll-snap-type: y mandatory; */
-  transition: scroll 700ms ease-in;
-  scroll-behavior: smooth;
+
   position: relative;
 }
 
@@ -99,6 +97,7 @@ select:hover {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .project-item {
@@ -109,7 +108,18 @@ select:hover {
   margin: auto 3%;
 }
 
-.projects-mid {
+.project-content {
+  position: absolute;
+  left: 30%;
+
+  top: 20%;
+  border: solid white 1px;
+  height: 70%;
+  width: 60%;
+}
+
+.project-item h1 {
+  font-size: 3vmax;
 }
 
 .projects-header {
@@ -193,6 +203,10 @@ a {
   justify-self: flex-start;
 }
 
+.side-icon {
+  font-size: 30;
+  color: "#FF737F";
+}
 .side-icon:hover {
   transform: scale(1.3);
 }

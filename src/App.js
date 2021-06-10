@@ -18,6 +18,14 @@ function App() {
   const [landing, setLandingVis] = useState(false);
   const [projects, setProjectsVis] = useState(false);
 
+  const [status, setStat] = useState(true);
+
+  const toggleStatus = (data) => setStat(data);
+  window.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    toggleStatus(e.deltaY > 0);
+  });
+
   const checkAboutVis = (e) => {
     if (e !== about) {
       setAboutVis(e);
@@ -42,7 +50,7 @@ function App() {
       <ScrollDots className={about ? "show" : "hide"} section="aboutDot" />
       <ScrollDots className={projects ? "show" : "hide"} section="projectsDot" />
 
-      <NavBar visibility={visStatus} />
+      <NavBar status={status} visibility={visStatus} />
       <Landing check={checkLandingVis} />
       <About check={checkAboutVis} />
       <Projects check={checkProjectsgVis} />

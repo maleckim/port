@@ -11,14 +11,6 @@ import Slide from "@material-ui/core/Slide";
 export default function IconBreadcrumbs(props) {
   const { about, landing, projects } = props.visibility;
   const ref = useRef();
-  const { scrollYProgress, scrollY } = useViewportScroll();
-  const [status, setStat] = useState(true);
-
-  useEffect(() => {
-    window.addEventListener("wheel", (e) => {
-      setStat(e.deltaY > 0);
-    });
-  }, []);
 
   const goToAbout = () => {
     let poop = document.querySelector("#about");
@@ -28,20 +20,15 @@ export default function IconBreadcrumbs(props) {
   const goToLanding = () => {
     let poop = document.querySelector("#landing");
 
-    poop.scrollIntoView({
-      behavior: "auto",
-      block: "center",
-      inline: "center",
-    });
+    poop.scrollIntoView(false);
   };
-
   const goToProjects = () => {
     let poop = document.querySelector("#projects");
     poop.scrollIntoView(false);
   };
 
   return (
-    <Slide initial="true" direction="down" in={!status}>
+    <Slide initial={true} direction="down" in={props.status}>
       <motion.div ref={ref} className="side-nav">
         <HomeOutlinedIcon
           onClick={() => goToLanding()}
