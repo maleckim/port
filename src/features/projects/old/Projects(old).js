@@ -1,7 +1,7 @@
 import React, { memo, useRef, useEffect, useState } from "react";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import Card from "./Card(old)";
-import useOnScreen from "../../utils/useOnScreen";
+import useOnScreen from "../../../utils/useOnScreen";
 import npmmScreen from "./assets/npmm.png";
 import npmmCli from "./assets/npmm-cli.gif";
 import quickShop from "./assets/quickshop.gif";

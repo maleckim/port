@@ -3,6 +3,7 @@ import NavBar from "./features/nav/NavBar";
 import Landing from "./features/landing/Landing";
 import About from "./features/about/About";
 import Projects from "./features/projects/Projects";
+import Contact from "./features/contacts/Contact";
 import ScrollDots from "./features/components/ScrollDots";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import useOnScreen from "./utils/useOnScreen";
@@ -17,6 +18,7 @@ function App() {
   const [about, setAboutVis] = useState(false);
   const [landing, setLandingVis] = useState(false);
   const [projects, setProjectsVis] = useState(false);
+  const [contact, setContactVis] = useState(false);
 
   const [status, setStat] = useState(true);
 
@@ -41,19 +43,26 @@ function App() {
       setProjectsVis(e);
     }
   };
+  const checkContactVis = (e) => {
+    if (e !== contact) {
+      setContactVis(e);
+    }
+  };
 
-  const visStatus = { about, landing, projects };
+  const visStatus = { about, landing, projects, contact };
 
   return (
     <div className="App">
       <ScrollDots className={landing ? "show" : "hide"} section="landingDot" />
       <ScrollDots className={about ? "show" : "hide"} section="aboutDot" />
       <ScrollDots className={projects ? "show" : "hide"} section="projectsDot" />
+      <ScrollDots className={contact ? "show" : "hide"} section="contactDot" />
 
       <NavBar status={status} visibility={visStatus} />
       <Landing check={checkLandingVis} />
       <About check={checkAboutVis} />
       <Projects check={checkProjectsgVis} />
+      <Contact check={checkContactVis} />
     </div>
   );
 }
