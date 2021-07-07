@@ -56,7 +56,7 @@ function App() {
       <ScrollDots className={landing ? "show" : "hide"} section="landingDot" />
       <ScrollDots className={about ? "show" : "hide"} section="aboutDot" />
       <ScrollDots className={projects ? "show" : "hide"} section="projectsDot" />
-      <ScrollDots className={contact ? "show" : "hide"} section="contactDot" />
+      {/* <ScrollDots className={contact ? "show" : "hide"} section="contactDot" /> */}
 
       <NavBar status={status} visibility={visStatus} />
       <Landing check={checkLandingVis} />

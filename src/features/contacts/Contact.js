@@ -3,6 +3,9 @@ import useOnScreen from "../../utils/useOnScreen";
 import { motion } from "framer-motion";
 import { useTransform, useViewportScroll } from "framer";
 import Button from "@material-ui/core/Button";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import EmailIcon from "@material-ui/icons/Email";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
 const Contact = (props) => {
   const contact = useRef();
@@ -35,62 +38,19 @@ const Contact = (props) => {
   }, [isVisible]);
 
   return (
-    <motion.div
-      ref={contact}
-      variants={tagVariants}
-      animate={isVisible ? "show" : "hidden"}
-      id="contact"
-      className="contact-main"
-    >
-      <div className="contact-details">
-        <h1>Matthew Malecki</h1>
-      </div>
-      <div className="contact-content">
-        <Button
-          variant="outlined"
-          style={{
-            borderColor: "white",
-            color: "white",
-            borderWidth: "2px",
-            fontSize: "20px",
-            textTransform: "none",
-          }}
-        >
-          <a style={{ textDecoration: "none" }} href="mailto:maleckimatthewm@gmail.com">
-            Email
-          </a>
-        </Button>
+    <div className="contact-content">
+      <a style={{ textDecoration: "none" }} href="mailto:maleckimatthewm@gmail.com">
+        <EmailIcon />
+      </a>
 
-        <Button
-          variant="outlined"
-          style={{
-            borderColor: "white",
-            color: "white",
-            borderWidth: "2px",
-            fontSize: "20px",
-            textTransform: "none",
-          }}
-        >
-          <a style={{ textDecoration: "none" }} target="_blank" href="https://github.com/maleckim">
-            Github
-          </a>
-        </Button>
-        <Button
-          variant="outlined"
-          style={{
-            borderColor: "white",
-            color: "white",
-            borderWidth: "2px",
-            fontSize: "20px",
-            textTransform: "none",
-          }}
-        >
-          <a style={{ textDecoration: "none" }} target="_blank" href="https://www.linkedin.com/in/maleckimatthew/">
-            LinkedIn
-          </a>
-        </Button>
-      </div>
-    </motion.div>
+      <a style={{ textDecoration: "none" }} target="_blank" href="https://github.com/maleckim">
+        <GitHubIcon />
+      </a>
+
+      <a style={{ textDecoration: "none" }} target="_blank" href="https://www.linkedin.com/in/maleckimatthew/">
+        <LinkedInIcon />
+      </a>
+    </div>
   );
 };
 

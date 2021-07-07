@@ -50,11 +50,11 @@ export default function IconBreadcrumbs(props) {
           style={{ fontSize: 30, color: "#FF737F" }}
           onClick={() => goToProjects()}
         />
-        <PermIdentityOutlinedIcon
+        {/* <PermIdentityOutlinedIcon
           className={contact ? "side-icon active" : "side-icon"}
           style={{ fontSize: 30, color: "#FF737F" }}
           onClick={() => goToContact()}
-        />
+        /> */}
       </motion.div>
     </Slide>
   );

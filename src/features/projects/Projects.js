@@ -53,7 +53,7 @@ const Projects = (props) => {
           <h1>test</h1>
         </div>
         <div className="proj-card">
-          <svg width={252} height={202.65} viewBox="0 0 252 202.65" className="prefix__css-1j8o68f" {...props}>
+          <svg width={252} height={202.65} viewBox="0 0 252 202.65" className="prefix__css-1j8o68f">
             <rect width={240} height={193} rx={8} transform="scale(1.05)" fill="#111" />
             <g xmlns="http://www.w3.org/2000/svg" fill="#61c0bf">
               <path

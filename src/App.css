@@ -179,22 +179,17 @@ select:hover {
   font-size: 3vmax;
 }
 
-.contact-main {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .contact-content {
-  height: 20%;
-  width: 30%;
-
+  height: fit-content;
+  width: 25%;
   display: flex;
+
   align-items: center;
   justify-content: space-evenly;
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-55%);
 }
 
 .contact-details h1 {
