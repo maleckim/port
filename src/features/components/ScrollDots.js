@@ -5,6 +5,4 @@ const ScrollDots = (props) => {
   return <div className={"scrollDot " + props.className + " " + props.section}></div>;
 };
 
-ScrollDots.propTypes = {};
-
 export default ScrollDots;

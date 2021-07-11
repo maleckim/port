@@ -1,11 +1,9 @@
-import React, { memo, useRef, useEffect, useState } from "react";
-import { motion, AnimateSharedLayout, AnimatePresence, usePresence } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 
 import useOnScreen from "../../utils/useOnScreen";
-import { useInView } from "react-intersection-observer";
-import npmmScreen from "./assets/npmm-logo.svg";
 
-import jsonTool from "./assets/json-logo.png";
+import npmmScreen from "./assets/npmm-logo.svg";
 
 const tagVariants = {
   show: {
@@ -89,7 +87,5 @@ const Projects = (props) => {
     </motion.div>
   );
 };
-
-Projects.propTypes = {};
 
 export default Projects;

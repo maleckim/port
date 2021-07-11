@@ -11,22 +11,22 @@ export default function IconBreadcrumbs(props) {
   const ref = useRef();
 
   const goToAbout = () => {
-    let poop = document.querySelector("#about");
-    poop.scrollIntoView(false);
+    let selectedEl = document.querySelector("#about");
+    selectedEl.scrollIntoView({ inline: "center" });
   };
 
   const goToLanding = () => {
-    let poop = document.querySelector("#landing");
+    let selectedEl = document.querySelector("#landing");
 
-    poop.scrollIntoView(false);
+    selectedEl.scrollIntoView(false);
   };
   const goToProjects = () => {
-    let poop = document.querySelector("#projects");
-    poop.scrollIntoView(false);
+    let selectedEl = document.querySelector("#projects");
+    selectedEl.scrollIntoView(false);
   };
   const goToContact = () => {
-    let poop = document.querySelector("#contact");
-    poop.scrollIntoView(false);
+    let selectedEl = document.querySelector("#contact");
+    selectedEl.scrollIntoView(false);
   };
 
   return (

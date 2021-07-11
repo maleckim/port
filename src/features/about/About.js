@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import useOnScreen from "../../utils/useOnScreen";
 import { motion } from "framer-motion";
 import { useTransform, useViewportScroll } from "framer";
@@ -39,8 +39,8 @@ const About = (props) => {
       variants={tagVariants}
       animate={isVisible ? "show" : "hidden"}
       style={{ y: yPosAnim, overflow: "hidden", zIndex: 2, display: "flex", position: "relative" }}
-      id="about"
       className="about-main"
+      id="about"
     >
       <div className="about-content">
         <h1 style={{ color: "white" }}>
