@@ -76,6 +76,7 @@ select:hover {
   justify-content: space-around;
   align-items: center;
   height: 100%;
+  width: 70%;
 }
 
 .main-content-wrapper {
@@ -96,6 +97,8 @@ select:hover {
 .projects-main {
   width: 100vw;
   height: 100vh;
+  min-height: fit-content;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
 }
@@ -108,28 +111,6 @@ select:hover {
   padding-bottom: 3%;
 }
 
-.project-item {
-  display: flex;
-  justify-content: flex-start;
-  color: white;
-  counter-increment: my-sec-counter;
-  margin: auto 3%;
-}
-
-.project-content {
-  position: absolute;
-  left: 30%;
-
-  top: 10%;
-  border: solid white 1px;
-  height: 100%;
-  width: 60%;
-}
-
-.project-item h1 {
-  font-size: 3vmax;
-}
-
 .projects-header {
   width: 100%;
   text-align: center;
@@ -137,21 +118,19 @@ select:hover {
   font-size: 3vmax;
 }
 
-.proj-header {
-  margin-bottom: 5%;
-}
-
 .projects-container {
+  width: 70%;
+  overflow: auto;
+  margin: 0 auto;
   height: 100%;
-  width: 100%;
+  overflow: auto;
   justify-content: space-evenly;
+  align-items: center;
   display: flex;
-
-  padding: 0 15px;
 }
 
 .proj-logo {
-  height: 20%;
+  height: 40%;
 }
 
 .proj-card {
@@ -160,7 +139,8 @@ select:hover {
   flex-direction: column;
   align-content: center;
   justify-content: space-around;
-  height: 60%;
+  margin-left: 7%;
+  height: 30%;
   width: 25%;
   border-radius: 5px;
   background-color: white;
@@ -176,7 +156,7 @@ select:hover {
 
 .proj-card img,
 .proj-card svg {
-  object-fit: contain;
+  height: 50%;
 
   margin: 0 auto;
 }
@@ -188,16 +168,34 @@ select:hover {
 }
 
 .contact-content {
-  height: fit-content;
-  width: 25%;
+  height: 25%;
+  width: fit-content;
   display: flex;
-
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: fixed;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-55%);
+  bottom: 0;
+  left: 2%;
+  z-index: 3;
+}
+
+.contact-icon {
+  transition: transform 0.3s ease;
+}
+
+.contact-icon:hover {
+  transform: scale(1.3);
+  transition: transform 0.3s ease;
+}
+
+.contact-content::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 75px;
+  margin: 0px auto;
+  background-color: white;
 }
 
 .contact-details h1 {
@@ -285,6 +283,7 @@ a {
 
 ::-webkit-scrollbar {
   width: 0px;
+  display: none;
 }
 
 .scrollDot {
