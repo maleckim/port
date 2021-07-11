@@ -1,12 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import CodeOutlinedIcon from "@material-ui/icons/CodeOutlined";
-import PermIdentityOutlinedIcon from "@material-ui/icons/PermIdentityOutlined";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import { useTransform, useElementScroll, useViewportScroll } from "framer";
-import DragIndicatorOutlinedIcon from "@material-ui/icons/DragIndicatorOutlined";
+
 import Slide from "@material-ui/core/Slide";
 
 export default function IconBreadcrumbs(props) {

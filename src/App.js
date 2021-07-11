@@ -1,16 +1,10 @@
-import React, { useState, useRef, useEffect, forwardRef } from "react";
+import React, { useState } from "react";
 import NavBar from "./features/nav/NavBar";
 import Landing from "./features/landing/Landing";
 import About from "./features/about/About";
 import Projects from "./features/projects/Projects";
-import Contact from "./features/contacts/Contact";
-import ScrollDots from "./features/components/ScrollDots";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import useOnScreen from "./utils/useOnScreen";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
-import { Page } from "framer";
+import ScrollDots from "./features/components/ScrollDots";
 
 import "./App.css";
 
@@ -24,7 +18,6 @@ function App() {
 
   const toggleStatus = (data) => setStat(data);
   window.addEventListener("wheel", (e) => {
-    e.preventDefault();
     toggleStatus(e.deltaY > 0);
   });
 
@@ -62,7 +55,7 @@ function App() {
       <Landing check={checkLandingVis} />
       <About check={checkAboutVis} />
       <Projects check={checkProjectsgVis} />
-      <Contact check={checkContactVis} />
+      {/* <Contact check={checkContactVis} /> */}
     </div>
   );
 }

@@ -92,7 +92,7 @@ select:hover {
 }
 
 .projects-main {
-  padding-top: 10%;
+  padding-top: 5%;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -103,6 +103,7 @@ select:hover {
   width: fit-content;
   height: fit-content;
   margin: 0 auto 0;
+  padding-bottom: 3%;
 }
 
 .project-item {
@@ -117,7 +118,7 @@ select:hover {
   position: absolute;
   left: 30%;
 
-  top: 20%;
+  top: 10%;
   border: solid white 1px;
   height: 100%;
   width: 60%;
@@ -164,12 +165,17 @@ select:hover {
   z-index: 2;
   cursor: pointer;
   box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 18%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  transition: transform 0.3s ease;
+}
+
+.proj-card:hover {
+  transform: scale(1.1);
 }
 
 .proj-card img,
 .proj-card svg {
-  max-height: 30%;
-  max-width: 80%;
+  object-fit: contain;
+
   margin: 0 auto;
 }
 
@@ -185,7 +191,7 @@ select:hover {
   display: flex;
 
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   position: fixed;
   bottom: 5%;
   left: 50%;
