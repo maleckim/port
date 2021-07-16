@@ -1,8 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=KoHo:wght@300&display=swap");
+
+
 /* Resets */
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  overscroll-behavior: none;
 }
 
 img:after {
@@ -49,7 +51,7 @@ select:hover {
   bottom: 0;
   overflow-x: hidden;
   background: linear-gradient(45deg, #ff8e53 30%, #fe6b8b 90%);
-
+  scrollbar-width: none;
   overflow-y: scroll;
 
   position: relative;
@@ -97,40 +99,77 @@ select:hover {
 .projects-main {
   width: 100vw;
   height: 100vh;
+  position: relative;
   min-height: fit-content;
-  overflow: scroll;
+  overflow: hidden;
+  scrollbar-width: none;
   display: flex;
   flex-direction: column;
 }
 
+.pinfo-div{
+  border: solid white 1px;
+  height: 100%;
+}
+
 .proj-header {
-  padding-top: 5%;
+  
   width: fit-content;
   height: fit-content;
   margin: 0 auto 0;
-  padding-bottom: 3%;
+  
 }
 
-.projects-header {
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-size: 3vmax;
-}
+
 
 .projects-container {
   width: 70%;
-  overflow: auto;
+  
+  height: fit-content;
+  min-height: 100vh;
   margin: 0 auto;
-  height: 100%;
-  overflow: auto;
-  justify-content: space-evenly;
-  align-items: center;
+  
+  justify-content: space-around;
+  align-items: flex-start;
   display: flex;
+  flex-direction: column;
 }
 
-.proj-logo {
-  height: 40%;
+.proj-info{
+  position:absolute;
+  transform: translateY(-30%);
+  top: 45%;
+  right: 7%;
+  height: 60%;
+  width: 50%;
+  
+ word-wrap: break-word;
+ display: flex;
+ flex-direction: column;
+}
+
+.proj-info-text{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1% 5% 20% 5%;
+  font-size: 1vmax;
+  color:white;
+}
+
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+.proj-tech{
+  padding-top: 7%;
+  padding-bottom: 10%;
+}
+
+.proj-info img{
+  max-height: 100%;
 }
 
 .proj-card {
@@ -139,9 +178,9 @@ select:hover {
   flex-direction: column;
   align-content: center;
   justify-content: space-around;
-  margin-left: 7%;
-  height: 30%;
-  width: 25%;
+  width:20%;
+  height: 10%;
+  padding: 15px;
   border-radius: 5px;
   background-color: white;
   z-index: 2;
@@ -156,8 +195,8 @@ select:hover {
 
 .proj-card img,
 .proj-card svg {
-  height: 50%;
-
+  height: auto;
+  width:60%;
   margin: 0 auto;
 }
 
@@ -247,11 +286,7 @@ a {
   top: 0%;
 }
 
-.draggable {
-  transform: rotateZ(90deg);
-  margin: 0 auto;
-  width: 40px;
-}
+
 
 .side-nav svg {
   transition: color 0.4s ease-in-out;
@@ -276,6 +311,10 @@ a {
 .side-icon:hover {
   transform: scale(1.3);
 }
+
+html {
+  scrollbar-width: none;
+  }
 
 ::-webkit-scrollbar {
   background: linear-gradient(45deg, #ff8e53 30%, #fe6b8b 90%);

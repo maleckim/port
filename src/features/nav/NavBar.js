@@ -1,58 +1,66 @@
-import React, { useRef } from "react";
-import { motion } from "framer-motion";
-import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
-import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
-import CodeOutlinedIcon from "@material-ui/icons/CodeOutlined";
-
-import Slide from "@material-ui/core/Slide";
+import React, { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined'
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined'
+import CodeOutlinedIcon from '@material-ui/icons/CodeOutlined'
+import { useSelector, useDispatch } from 'react-redux'
+import _ from 'lodash'
+import Slide from '@material-ui/core/Slide'
+import { up, down, selectCount } from './navSlice'
 
 export default function IconBreadcrumbs(props) {
-  const { about, landing, projects, contact } = props.visibility;
-  const ref = useRef();
+  const dispatch = useDispatch()
+
+  const { about, landing, projects } = props.visibility
+  const ref = useRef()
+  const count = useSelector(selectCount)
+  const changePage = (direction) => {
+    console.log(count)
+    if (direction > 0) {
+      dispatch(down())
+    } else {
+      dispatch(up())
+    }
+  }
+  const onWheel = (event) => {
+    changePage(event.deltaY)
+  }
+  const onWheelThrottled = React.useMemo(() => _.throttle(onWheel, 500), [])
 
   const goToAbout = () => {
-    let selectedEl = document.querySelector("#about");
-    selectedEl.scrollIntoView({ inline: "center" });
-  };
+    const selectedEl = document.querySelector('#about')
+    selectedEl.scrollIntoView({ inline: 'center' })
+  }
 
   const goToLanding = () => {
-    let selectedEl = document.querySelector("#landing");
+    const selectedEl = document.querySelector('#landing')
 
-    selectedEl.scrollIntoView(false);
-  };
+    selectedEl.scrollIntoView(false)
+  }
   const goToProjects = () => {
-    let selectedEl = document.querySelector("#projects");
-    selectedEl.scrollIntoView(false);
-  };
-  const goToContact = () => {
-    let selectedEl = document.querySelector("#contact");
-    selectedEl.scrollIntoView(false);
-  };
+    const selectedEl = document.querySelector('#projects')
+    selectedEl.scrollIntoView(false)
+  }
 
   return (
-    <Slide initial={true} direction="down" in={props.status}>
+    <Slide initial direction="down" in={count}>
       <motion.div ref={ref} className="side-nav">
         <HomeOutlinedIcon
           onClick={() => goToLanding()}
-          className={landing ? "side-icon active" : "side-icon"}
-          style={{ fontSize: 30, color: "#FF737F" }}
+          className={landing ? 'side-icon active' : 'side-icon'}
+          style={{ fontSize: 30, color: '#FF737F' }}
         />
         <InfoOutlinedIcon
           onClick={() => goToAbout()}
-          className={about ? "side-icon active" : "side-icon"}
-          style={{ fontSize: 30, color: "#FF737F" }}
+          className={about ? 'side-icon active' : 'side-icon'}
+          style={{ fontSize: 30, color: '#FF737F' }}
         />
         <CodeOutlinedIcon
-          className={projects ? "side-icon active" : "side-icon"}
-          style={{ fontSize: 30, color: "#FF737F" }}
+          className={projects ? 'side-icon active' : 'side-icon'}
+          style={{ fontSize: 30, color: '#FF737F' }}
           onClick={() => goToProjects()}
         />
-        {/* <PermIdentityOutlinedIcon
-          className={contact ? "side-icon active" : "side-icon"}
-          style={{ fontSize: 30, color: "#FF737F" }}
-          onClick={() => goToContact()}
-        /> */}
       </motion.div>
     </Slide>
-  );
+  )
 }

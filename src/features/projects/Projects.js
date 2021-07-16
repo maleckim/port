@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useEffect, useState } from 'react'
+import { AnimatePresence, motion, useIsPresent } from 'framer-motion'
 
-import useOnScreen from "../../utils/useOnScreen";
+import useOnScreen from '../../utils/useOnScreen'
 
-import npmmScreen from "./assets/npmm-logo.svg";
+import npmmScreen from './assets/npmm-logo.svg'
 
 const tagVariants = {
   show: {
@@ -23,35 +23,110 @@ const tagVariants = {
       ease: [0.83, 0, 0.17, 1],
     },
   },
-};
+}
 
 const Projects = (props) => {
-  const projects = useRef();
-  const isVisible = useOnScreen(projects, "-150px");
+  const projects = useRef()
+  const isVisible = useOnScreen(projects, '-150px')
 
   useEffect(() => {
-    isVisible ? props.check(true) : props.check(false);
-  }, [isVisible]);
+    isVisible ? props.check(true) : props.check(false)
+  }, [isVisible])
+
+  const image = ['npmm', 'j-build', 'quickshop']
+
+  const projectData = {
+    npmm: [
+      'React - Redux - Postgres - Node (express)',
+      'NPMM allows developers to frictionlessly browse and save npm packages. Saved packages can then be programmatically installed with our command line interface. Imagine the npmjs.com website but with a few critical features added in for ease of use.',
+    ],
+    'j-build': [
+      'React - Redux - AWS S3 (sdk & bucket gui) - Firebase',
+      "Initially I created this because I found myself repeatedly manually creating extensive JSONs for a particular 'card generation' style page. It began as a single page html using only inline vanilla js. Once it became a bit unreadable/unmanageable I switched it over to react. After awhile I decided to turn it into more of a learning experience and implemented redux for the state management, AWS for serving, and I began to dabble with firebase for data persistence.",
+    ],
+    quickshop: [
+      'PHP - Laravel',
+      "One day I was in the mood to play with a new language/framework so I landed on PHP/Laravel. My purpose was to branch out but also to work with MVC model specifically. I modeled the application's general flow and feel after Amazons site. ",
+    ],
+  }
+
+  const [current, setCurrent] = useState(0)
+  function Slideshow({ images }) {
+    const variants = {
+      enter: {
+        x: 1000,
+        opacity: 0,
+      },
+      hidden: { opacity: 0 },
+      center: {
+        zIndex: 1,
+        x: 0,
+        opacity: 1,
+      },
+      exit: {
+        zIndex: 0,
+        x: 1000,
+        opacity: 0,
+      },
+    }
+    const currentProject = images[current]
+    const currentProjectInfo = projectData[currentProject]
+
+    return (
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          key={current}
+          // custom={direction}
+          variants={variants}
+          initial="enter"
+          // animate="center"
+          animate="center"
+          exit="exit"
+          transition={{
+            x: { type: 'spring', stiffness: 200, damping: 30 },
+            opacity: { duration: 0.2 },
+          }}
+          className="proj-info-text"
+        >
+          <h1>{currentProject}</h1>
+          <h2 className="proj-tech">{currentProjectInfo[0]}</h2>
+          <h2>{currentProjectInfo[1]}</h2>
+        </motion.div>
+      </AnimatePresence>
+    )
+  }
 
   return (
     <motion.div
       ref={projects}
       variants={tagVariants}
-      animate={isVisible ? "show" : "hidden"}
-      style={{ overflow: "hidden", zIndex: 2, display: "flex", position: "relative" }}
+      animate={isVisible ? 'show' : 'hidden'}
+      style={{ zIndex: 1 }}
       id="projects"
       className="projects-main"
     >
-      <div className="proj-header">
-        <h1>Projects</h1>
-      </div>
       <div className="projects-container">
-        <div className="proj-card">
+        <div className="proj-header">
+          <h1>Projects</h1>
+        </div>
+
+        <div onClick={() => setCurrent(0)} className="proj-card">
           <img className="proj-logo" src={npmmScreen} />
         </div>
-        <div className="proj-card">
-          <svg width={252} height={202.65} viewBox="0 0 252 202.65" className="prefix__css-1j8o68f">
-            <rect width={240} height={193} rx={8} transform="scale(1.05)" fill="#111" />
+        <div onClick={() => setCurrent(1)} className="proj-card">
+          <svg
+            width={252}
+            height={202.65}
+            viewBox="0 0 252 202.65"
+            className="prefix__css-1j8o68f"
+          >
+            <rect
+              width={240}
+              height={193}
+              rx={8}
+              transform="scale(1.05)"
+              fill="#111"
+            />
             <g xmlns="http://www.w3.org/2000/svg" fill="#61c0bf">
               <path
                 className="prefix__st4"
@@ -68,10 +143,13 @@ const Projects = (props) => {
             />
           </svg>
         </div>
-        <div className="proj-card">
-          {/* <img src={quickShop} /> */}
-
-          <svg width={252} height={202.65} viewBox="0 0 200 40.70320770684062" className="proj-logo">
+        <div onClick={() => setCurrent(2)} className="proj-card">
+          <svg
+            width={252}
+            height={202.65}
+            viewBox="0 0 200 40.70320770684062"
+            className="proj-logo"
+          >
             <defs id="SvgjsDefs1552"></defs>
             <g
               id="SvgjsG1553"
@@ -84,8 +162,11 @@ const Projects = (props) => {
           </svg>
         </div>
       </div>
+      <div className="proj-info">
+        <Slideshow images={image} />
+      </div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects
