@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { AnimatePresence, motion, useIsPresent } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import useOnScreen from '../../utils/useOnScreen'
 

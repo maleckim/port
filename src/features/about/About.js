@@ -12,7 +12,7 @@ const About = (props) => {
   const tagVariants = {
     show: {
       opacity: 1,
-      
+
       transition: {
         delay: 0.2,
         duration: 0.7,
@@ -37,11 +37,11 @@ const About = (props) => {
     <motion.div
       ref={about}
       variants={tagVariants}
-      initial='show'
+      initial="show"
       animate={isVisible ? 'show' : 'hidden'}
       style={{
         y: yPosAnim,
-        
+
         zIndex: 2,
         display: 'flex',
         position: 'relative',
@@ -51,7 +51,7 @@ const About = (props) => {
     >
       <div className="about-content">
         <h1 className="about-intro">
-            Hello! My name is Matthew Malecki and I’m a full-stack developer based
+          Hello! My name is Matthew Malecki and I’m a full-stack developer based
           in Chicago. I’ve been programming for 4 years and started developing
           things for the web in the last two. I have equal parts love for both
           front and back end development. My strengths lie in my perpetual
@@ -60,7 +60,7 @@ const About = (props) => {
           situations.
         </h1>
         <h1>
-            There are a few things that keep me extremely motivated about the work
+          There are a few things that keep me extremely motivated about the work
           I do. Firstly, I love art and the process that goes into creating it.
           I can't draw or paint, but I'm able to create palpable forms of art
           through development. On a parallel note, problem solving and tackling

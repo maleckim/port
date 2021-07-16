@@ -4,7 +4,7 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 import EmailIcon from '@material-ui/icons/Email'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 
-const Contact = (props) => (
+const Contact = () => (
   <div className="contact-content">
     <a
       className="contact-icon"
@@ -18,7 +18,8 @@ const Contact = (props) => (
       className="contact-icon"
       style={{ textDecoration: 'none' }}
       target="_blank"
-      href="https://github.com/maleckim" rel="noreferrer"
+      href="https://github.com/maleckim"
+      rel="noreferrer"
     >
       <GitHubIcon />
     </a>
@@ -27,7 +28,8 @@ const Contact = (props) => (
       className="contact-icon"
       style={{ textDecoration: 'none' }}
       target="_blank"
-      href="https://www.linkedin.com/in/maleckimatthew/" rel="noreferrer"
+      href="https://www.linkedin.com/in/maleckimatthew/"
+      rel="noreferrer"
     >
       <LinkedInIcon />
     </a>
