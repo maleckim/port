@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, {  useRef } from 'react'
 import { motion } from 'framer-motion'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined'
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined'
@@ -25,7 +25,7 @@ export default function IconBreadcrumbs(props) {
   const onWheel = (event) => {
     changePage(event.deltaY)
   }
-  const onWheelThrottled = React.useMemo(() => _.throttle(onWheel, 500), [])
+  
 
   const goToAbout = () => {
     const selectedEl = document.querySelector('#about')

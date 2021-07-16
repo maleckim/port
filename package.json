@@ -25,10 +25,13 @@
     "eject": "react-scripts eject",
     "format": "prettier --write \"{,!(node_modules)/**/}*.js\"",
     "lint": "eslint ./ --ignore-path .gitignore",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "eslint --fix --ext .js,.jsx ."
   },
   "eslintConfig": {
-    "extends": "@imaginary-cloud/react"
+    "extends": "@imaginary-cloud/react",
+    "plugins": [
+      "react"
+    ]
   },
   "prettier": "@imaginary-cloud/prettier-config",
   "browserslist": {
@@ -46,6 +49,7 @@
   "devDependencies": {
     "@imaginary-cloud/eslint-config-react": "^1.0.1",
     "@imaginary-cloud/prettier-config": "^1.0.0",
+    "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0 || ^6.8.0 || ^7.2.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
