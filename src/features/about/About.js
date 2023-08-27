@@ -51,22 +51,7 @@ const About = (props) => {
     >
       <div className="about-content">
         <h1 className="about-intro">
-          Hello! My name is Matthew Malecki and I’m a full-stack developer based
-          in Chicago. I’ve been programming for 4 years and started developing
-          things for the web in the last two. I have equal parts love for both
-          front and back end development. My strengths lie in my perpetual
-          patience and my ability to learn very quickly; I’m an extremely
-          adaptive individual who thrives in unfamiliar high-pressure
-          situations.
-        </h1>
-        <h1>
-          There are a few things that keep me extremely motivated about the work
-          I do. Firstly, I love art and the process that goes into creating it.
-          I can't draw or paint, but I'm able to create palpable forms of art
-          through development. On a parallel note, problem solving and tackling
-          difficult logic has always been my strong suit. This parallel between
-          the two makes work become less like work and more of just a
-          captivating way to spend my time.
+        Greetings! I'm a software developer known for my remarkable adaptability and unwavering patience. I excel in swiftly adjusting to diverse challenges and intricate tasks. Drawing from four years of experience, I've honed a meticulous approach that values methodical problem-solving and a steady pace. This blend allows me to navigate complex projects with precision and composure, ensuring exceptional outcomes every step of the way.
         </h1>
       </div>
     </motion.div>
